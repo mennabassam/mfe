@@ -13,6 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Install marketing dependencies
+        run: npm install
+        working-directory: packages/marketing
       - run: npm install
       - run: npm run build
       - uses: shinyinc/action-aws-cli@v1
