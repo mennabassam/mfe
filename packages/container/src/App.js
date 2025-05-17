@@ -6,6 +6,6 @@ export default ()=>{
 Hi There! 
     </h1>
        <hr/> 
-    <MarkitingApp/>
+    <MarkitingApp />
     </>
 }
