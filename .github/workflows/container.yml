@@ -13,13 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      # - name: Install marketing dependencies
+      - name: Install marketing dependencies
       -  run: npm install
       -  run: npm run build
-        # working-directory: packages/marketing
+         working-directory: packages/marketing
 
-      # - run: npm install
-      # - run: npm run build
+      - run: npm install
+      - run: npm run build
       - uses: shinyinc/action-aws-cli@v1
       - run: aws s3 cp dist s3://${{secrets.AWS_S3_BUCKET}}/container/latest/
         env:
