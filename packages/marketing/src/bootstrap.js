@@ -4,6 +4,7 @@ import App from "./App";
 
 //mount fun
 const mount = (el) => {
+  console.log("Mounting marketing app");
   ReactDom.render(<App />, el);
 };
 
