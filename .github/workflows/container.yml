@@ -13,11 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install marketing dependencies
-        run: |
-          npm install
-          npm run build
-        working-directory: packages/marketing
+      # - name: Install marketing dependencies
+      #   run: |
+      #     npm install
+      #     npm run build
+      #   working-directory: packages/marketing
       - name: Install container dependencies
         run: npm install
       - name: Build container
