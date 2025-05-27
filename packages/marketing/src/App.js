@@ -12,7 +12,7 @@ export default () => {
   return (
     <div>
       <StylesProvider>
-        <BrowserRouter>
+        <BrowserRouter >
           <Switch>
             <Route exact path="/pricing" component={Pricing} />
             <Route path="/" component={Landing} />
