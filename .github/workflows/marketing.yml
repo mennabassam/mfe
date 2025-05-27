@@ -1,13 +1,13 @@
-name: Container
+name: Marketing
 on:
   push:
     branches:
       - main
     paths:
-      - "packages/container/**"
+      - "packages/marketing/**"
 defaults:
   run:
-    working-directory: packages/container
+    working-directory: packages/marketing
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,20 +18,17 @@ jobs:
           npm install
           npm run build
         working-directory: packages/marketing
-      - name: Install container dependencies
-        run: npm install
-      - name: Build container
+     
+      - name: Build marketing
         run: npm run build
-        env:
-          PRODUCION_DOMAIN: ${{ secrets.PRODUCION_DOMAIN }}
       - uses: shinyinc/action-aws-cli@v1
       - name: Upload to S3
-        run: aws s3 cp dist s3://${{ secrets.AWS_S3_BUCKET }}/container/latest/ --recursive
+        run: aws s3 cp dist s3://${{ secrets.AWS_S3_BUCKET }}/marketing/latest/ --recursive
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       - name: Invalidate Cloudfront
-        run : aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/cintainer/latest/index.html"
+        run : aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/marketing/latest/remoteEntry.js"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
