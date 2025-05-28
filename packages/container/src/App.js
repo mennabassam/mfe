@@ -1,10 +1,10 @@
 import React from "react";
 import MarkitingApp from "../components/MarkitingApp";
+import Header from "../components/Header";
 
 export default ()=>{
-    return <><h1>
-Hi There!!
-    </h1>
+    return <>
+    {/* <Header/> */}
        <hr/> 
     <MarkitingApp />
     </>
