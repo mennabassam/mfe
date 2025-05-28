@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link as RouterLink } from 'react-router-dom';
+// import { Link as RouterLink } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
@@ -24,9 +24,9 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
     justifyContent: 'space-between',
   },
-  link: {
-    margin: theme.spacing(1, 1.5),
-  },
+  // link: {
+  //   margin: theme.spacing(1, 1.5),
+  // },
   heroContent: {
     padding: theme.spacing(8, 0, 6),
   },
@@ -76,7 +76,7 @@ export default function Header({ signedIn, onSignOut }) {
             variant="h6"
             color="inherit"
             noWrap
-            component={RouterLink}
+          //  component={RouterLink}
             to="/"
           >
             App
@@ -84,8 +84,8 @@ export default function Header({ signedIn, onSignOut }) {
           <Button
             color="primary"
             variant="outlined"
-            className={classes.link}
-            component={RouterLink}
+        //    className={classes.link}
+           // component={RouterLink}
             to={signedIn ? '/' : '/auth/signin'}
             onClick={onClick}
           >
