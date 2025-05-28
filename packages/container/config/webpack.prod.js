@@ -3,6 +3,8 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 const commonConfig = require('./webpack.common');
 const packageJson = require('../package.json');
 const domain = process.env.PRODUCTION_DOMAIN;
+console.log("REMOTE URL:", `${domain}/marketing/latest/remoteEntry.js`);
+
 const prodConfig = {
     mode: "production",
     output: {
